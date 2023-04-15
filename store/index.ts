@@ -1,4 +1,4 @@
-import { StoreModel } from "@/interface";
+import StoreModel from "./models";
 import { persist, createStore, action } from "easy-peasy";
 
 
@@ -28,7 +28,7 @@ const store = createStore<StoreModel>(
                 state.showPopper = null
             } else {
                 payload.event!.stopPropagation()
-                state.showPopper = payload.id!
+                state.showPopper = payload.tag!
             }
         })
     }),

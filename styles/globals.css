@@ -4,7 +4,7 @@
 
 @layer components {
   .tso-scrollbar {
-    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-zinc-400 scrollbar-track-rounded-lg scrollbar-thumb-rounded-lg
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-zinc-400 scrollbar-thumb-rounded-lg 
   }
 }
 /* 
