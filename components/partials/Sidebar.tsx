@@ -4,14 +4,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode, useState, useRef } from 'react';
 import {
-  BsChatLeft,
   BsChevronRight,
-  BsClipboardData,
   BsDot,
   BsFillFileEarmarkTextFill,
   BsSearch,
   BsX,
 } from 'react-icons/bs';
+import { pages, menus } from '@/constants';
 
 export const SidebarElement = ({
   path,
@@ -25,7 +24,7 @@ export const SidebarElement = ({
   children?: Array<any>;
 }) => {
   const router = useRouter();
-  const isActive = path.indexOf(router.route) !== -1;
+  const isActive = router.route.indexOf(path) !== -1;
   const [showChildren, setShowChildren] = useState(isActive);
   const ref = useRef<HTMLDivElement>(null);
   return (
@@ -108,64 +107,7 @@ export const Sidebar = () => {
   );
   const debouncedSetMenuSearchString = debounce(setMenuSearchString, 500);
   const inputRef = useRef<HTMLInputElement>(null);
-  const pages: Record<string, any> = {
-    nochild: {
-      path: '/',
-      name: 'Home',
-    },
-    one: {
-      path: '/one',
-      name: 'One',
-      icon: <BsChatLeft />,
-    },
-    two: {
-      path: '/two',
-      name: 'Two',
-      icon: <BsClipboardData />,
-    },
-  };
-  const menus = [
-    {
-      key: 'one',
-      children: [
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'one',
-        'nochild',
-      ],
-    },
-    {
-      title: 'Home group',
-    },
-    {
-      key: 'nochild',
-      children: ['two', 'nochild'],
-    },
-    {
-      key: 'two',
-    },
-    {
-      title: 'Two group',
-    },
-    {
-      key: 'two',
-    },
-  ];
+
   return (
     <div
       className={`bg-slate-800 text-neutral-400 transition-all ${

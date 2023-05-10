@@ -1,10 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useStoreActions } from '@/hooks/useStore';
-import { Sidebar } from './partials';
-import { StickyHeader } from './partials/StickyHeader';
+import { Sidebar, StickyHeader } from './partials';
+import { useRouter } from 'next/router';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const togglePopper = useStoreActions(actions => actions.togglePopper);
+  const router = useRouter();
+  useEffect(() => {
+    togglePopper();
+  }, [router, togglePopper]);
   return (
     <>
       <div

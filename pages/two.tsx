@@ -32,8 +32,8 @@ const Two: NextPageWithLayout<TwoProps> = props => {
       <div>This is page two</div>
       <div>count: {count}</div>
       <div>{props.anjay}</div>
-      {props.todos.map(item => (
-        <>{item.title}</>
+      {props.todos.map((item, index) => (
+        <p key={index}>{item.title}</p>
       ))}
       <button onClick={() => decrement()}>decrement</button>
       <Link href="/one">go to one</Link>
